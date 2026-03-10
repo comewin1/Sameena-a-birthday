@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Sameena 🎉</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+text-align:center;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+color:white;
+overflow:hidden;
+}
+
+h1{
+margin-top:60px;
+font-size:60px;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{ text-shadow:0 0 10px white;}
+to{ text-shadow:0 0 30px yellow;}
+}
+
+.message{
+font-size:24px;
+margin-top:10px;
+}
+
+.cake{
+font-size:80px;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
+
+/* balloons */
+
+.balloon{
+position:absolute;
+bottom:-120px;
+width:60px;
+height:80px;
+border-radius:50%;
+animation:float 8s infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+100%{transform:translateY(-120vh)}
+}
+
+.b1{left:10%;background:red;}
+.b2{left:30%;background:blue;}
+.b3{left:50%;background:yellow;}
+.b4{left:70%;background:green;}
+.b5{left:85%;background:pink;}
+
+/* slideshow */
+
+.slideshow{
+margin-top:30px;
+}
+
+.slideshow img{
+width:220px;
+height:220px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+/* button */
+
+button{
+margin-top:20px;
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:10px;
+background:white;
+color:#ff4d88;
+cursor:pointer;
+}
+
+/* fireworks */
+
+.firework{
+position:absolute;
+width:8px;
+height:8px;
+background:white;
+border-radius:50%;
+animation:explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+0%{transform:scale(1)}
+100%{transform:scale(6);opacity:0}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🎉 Happy Birthday Sameena 🎉</h1>
+
+<div class="message">
+Wishing you happiness, smiles and lots of cake ❤️
+</div>
+
+<div class="cake">🎂</div>
+
+<div class="slideshow">
+<img id="photo" src="photo1.jpg">
+</div>
+
+<button onclick="surprise()">🎁 Click for Surprise</button>
+
+<div class="balloon b1"></div>
+<div class="balloon b2"></div>
+<div class="balloon b3"></div>
+<div class="balloon b4"></div>
+<div class="balloon b5"></div>
+
+<audio autoplay loop>
+<source src="birthday.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* slideshow */
+
+let images=["photo1.jpg.jpeg","photo2.jpg.jpeg","photo3.jpg.jpeg"];
+let i=0;
+
+setInterval(()=>{
+i=(i+1)%images.length;
+document.getElementById("photo").src=images[i];
+},2000);
+
+
+/* confetti */
+
+for(let i=0;i<40;i++){
+let conf=document.createElement("div");
+conf.style.position="absolute";
+conf.style.width="10px";
+conf.style.height="10px";
+conf.style.background="white";
+conf.style.left=Math.random()*100+"%";
+conf.style.top="-10px";
+conf.style.animation="fall "+(Math.random()*3+2)+"s linear infinite";
+document.body.appendChild(conf);
+}
+
+/* surprise fireworks */
+
+function surprise(){
+
+for(let i=0;i<20;i++){
+
+let fw=document.createElement("div");
+fw.className="firework";
+
+fw.style.left=Math.random()*100+"%";
+fw.style.top=Math.random()*100+"%";
+
+document.body.appendChild(fw);
+
+setTimeout(()=>fw.remove(),1000);
+
+}
+
+alert("🎉 Surprise! Happy Birthday Sameena! 🎂❤️");
+
+}
+
+</script>
+
+</body>
+</html>
